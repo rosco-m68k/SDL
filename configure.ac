@@ -1,4 +1,4 @@
-dnl Process this file with autoconf to produce a configure script.
+nl Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.65])
 AC_INIT
 AC_CONFIG_SRCDIR([src/SDL.c])
@@ -4614,6 +4614,10 @@ dnl BeOS support removed after SDL 2.0.1. Haiku still works.  --ryan.
             have_timers=yes
         fi
         ;;
+    *-*-rosco*)
+        ARCH=rosco_m68k
+        EXTRA_CFLAGS="$EXTRA_CFLAGS -D__ROSCO_M68K__"
+        ;;
     *-*-os2*)
         ARCH=os2
         if test "$build" != "$host"; then # cross-compiling
@@ -4696,7 +4700,7 @@ dnl BeOS support removed after SDL 2.0.1. Haiku still works.  --ryan.
         ;;
     *)
         AC_MSG_ERROR([
-*** Unsupported host:  Please add to configure.ac
+*** Unsupported host $host:  Please add to configure.ac
         ])
         ;;
 esac
