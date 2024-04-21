@@ -1786,6 +1786,8 @@ case $os in
 	kernel* | msvc* )
 		# Restricted further below
 		;;
+    rosco*)
+        ;;
 	'')
 		if test x"$obj" = x
 		then
